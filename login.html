@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 2rem;
+        }
+
+        .form-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .form-section h2 {
+            color: #6a5acd;
+            margin-bottom: 1rem;
+        }
+
+        .form-section p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .form-section a {
+            color: #6a5acd;
+            text-decoration: none;
+        }
+
+        .form-section a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .login-button {
+            background-color: #6a5acd;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .login-button:hover {
+            background-color: #5a4cb0;
+        }
+    </style>
+
+    <div class="login-container">
+        <div class="form-section">
+            <h2>Sign in</h2>
+            <p>Or <a href="register.html">register for an account</a></p>
+            <form id="signupForm" action="https://formspree.io/f/xovdbplq" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button">Sign in</button>
+            </form>
+            <p><a href="#">Forgot your password?</a></p>
+            <div id="errorMessage" style="color: red; margin-top: 1rem;"></div>
+            <div id="form-message" style="color: green; margin-top: 1rem;"></div>
+        </div>
+    </div>
+
+    <script>
+    function signup(event) {
+        event.preventDefault();
+
+        const emailField = document.getElementById('email');
+        const passwordField = document.getElementById('password');
+        const errorDiv = document.getElementById('errorMessage');
+        const formMessageDiv = document.getElementById('form-message');
+
+        const email = emailField.value.trim();
+        const password = passwordField.value.trim();
+
+    
+        const registeredEmail = localStorage.getItem('registeredEmail');
+        const registeredPassword = localStorage.getItem('registeredPassword');
+
+        if (email === registeredEmail && password === registeredPassword) {
+            alert('Sign up successful');
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = './index.html'; // Adjust as needed
+        } else {
+            errorDiv.textContent = 'Email or password is incorrect.';
+        }
+    }
+
+        function signup(event) {
+    event.preventDefault();
+
+    const emailField = document.getElementById('email');
+    const passwordField = document.getElementById('password');
+    const errorDiv = document.getElementById('errorMessage');
+    const formMessageDiv = document.getElementById('form-message');
+
+    const email = emailField.value.trim();
+    const password = passwordField.value.trim();
+
+    // Get stored credentials
+    const storedEmail = localStorage.getItem('registeredEmail');
+    const storedPassword = localStorage.getItem('registeredPassword');
+
+    // Reset error message
+    errorDiv.textContent = '';
+    errorDiv.style.color = 'red';
+
+    if (email === storedEmail && password === storedPassword) {
+        alert('Sign up successful!');
+        window.location.href = './index.html'; // or wherever you want to redirect
+    } else {
+        errorDiv.textContent = 'Email or password incorrect.';
+    }
+}
+
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+    setTimeout(function() {
+        document.getElementById('form-message').textContent = "Login submitted! Please check your email for confirmation.";
+    }, 1000);
+});
+    </script>
+</body>
+</html>

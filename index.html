@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="logo.jpg" />
+    <title>Rhecthor's Nation</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <style>
+
+        :root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --primary-color: #6366f1;
+    --card-bg: #f9f9f9;
+    --border-color: #e5e7eb;
+}
+
+body.dark-mode{
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+}
+
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul{
+    display: flex;
+    font-size: 17px;
+    display: flex;
+    justify-content: right;
+    align-items: center
+  }
+
+  ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+ul li a{
+    text-decoration: none;
+}
+
+ul li a:hover{
+    color: #0f172a;
+}
+
+
+
+.sign{
+    margin-left: 100px;
+}
+
+.theme-toogle{
+    padding: 0.6rem 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.theme-toogle:hover{
+    background-color: #4f46e5;
+}
+
+.hero{
+    padding: 6rem 5% 3rem;
+    text-align: left;
+    display: flex;
+}
+
+.heroes {
+    display: flex;
+    justify-content: space-around;
+    gap: 60px;
+}
+
+.heroes img {
+    width: 800px;
+}
+
+.hero h2{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom:1rem ;
+    color: var(--primary-color);
+}
+
+.hero p{
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+ i{
+    font-size: 40px;
+ }
+
+ i:hover{
+    color: #ff7200;
+ }
+
+ .choose-plan a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+ }
+
+.cta-button{
+    padding: 0.8rem 1.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+
+.courses{
+    padding: 4rem 5% 5rem;
+    text-align: center;
+}
+
+.courses h3{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.course-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.course-card{
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s;
+}
+
+.course-card:hover{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.course-card h4{
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.pricing {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.pricing h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pricing-card.most-popular {
+    border: 2px solid #6a5acd;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-card p {
+    margin: 0.5rem 0;
+}
+
+.pricing-card .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.pricing-card .old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 0.5rem;
+}
+
+.pricing-card .new-price {
+    color: #6a5acd;
+}
+
+.pricing-card.most-popular:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.choose-plan {
+    background-color: #6a5acd;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.choose-plan:hover {
+    background-color: #5a4cb0;
+}
+
+.migration {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2c2c54;
+    color: #fff;
+}
+
+.migration h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.migration p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.migration-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.migration-card {
+    background: #3b3b6d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.migration-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.migration-card p {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+}
+
+.get-started {
+    background-color: #6a5acd;
+    color: #fff;
+    border: none;
+    padding: 0.79rem 1.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+.get-started:hover {
+    background-color: #5a4cb0;
+}
+
+.testimonials {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.testimonials h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #6a5acd;
+}
+
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.testimonial-header h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+.testimonial-header p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.rating {
+    font-size: 1.25rem;
+    color: #f4c542;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: #6a5acd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.read-more-stories {
+    background-color: #6a5acd;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+.read-more-stories:hover {
+    background-color: #5a4cb0;
+}
+
+.readmi {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+.readmi img {
+    width: 100%;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    height: 12rem;
+}
+.readmi img:active {
+    transform: translateY(-10px);
+}
+.price {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #5a4cb0;
+}
+
+.readmi h2{
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    
+}
+
+@media (max-width: 768px) {
+    .hero h2{
+        font-size: 2rem;
+    }
+
+    .courses h3{
+        font-size: 1.5rem;
+    }
+}
+
+.work {
+    background: white;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.work img {
+    width: 100%;
+    border-radius: 5px;
+}
+.footer {
+    background-color: #2d0b57;
+    color: #333;
+    padding: 2rem;
+    font-size: 0.9rem;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-grid h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .footer-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-grid ul li {
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #fff;
+    padding-top: 1rem;
+  }
+  
+  .footer-logo img {
+    max-width: 150px;
+    margin-bottom: 1rem;
+  }
+  
+  .payment-methods img {
+    max-width: 50px;
+    margin: 0 0.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding-left: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    .sign {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .heroes {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .heroes img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-grid,
+    .migration-grid,
+    .testimonials-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card,
+    .migration-card,
+    .testimonial-card {
+        width: 90%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-button,
+    .choose-plan,
+    .get-started,
+    .read-more-stories {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+
+}
+
+ @keyframes slideInTop {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInBottom {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+
+.animate-top, .animate-bottom, .animate-left, .animate-right {
+    opacity: 0;
+    transform: translateY(0); /* fallback */
+}
+
+.animate-top.visible {
+    animation: slideInTop 2s ease-out forwards;
+}
+.animate-bottom.visible {
+    animation: slideInBottom 2s ease-out forwards;
+}
+.animate-left.visible {
+    animation: slideInLeft 2s ease-out forwards;
+}
+.animate-right.visible {
+    animation: slideInRight 2s ease-out forwards;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: 1rem;
+    position: relative;
+}
+.hamburger span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    background: #6366f1;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+.hamburger span:nth-child(2) {
+    width: 16px; /* Middle bar shorter */
+    margin-left: 6px; /* Center the short bar */
+    background: #4f46e5; /* Slightly different color for effect */
+}
+.hamburger span:first-child,
+.hamburger span:last-child {
+    box-shadow: 0 2px 8px rgba(99,102,241,0.15);
+}
+.hamburger:hover span {
+    background: #4f46e5;
+}
+.hamburger:hover span:nth-child(2) {
+    background: #6366f1;
+    transition: 0.3s;
+}
+
+/* Responsive nav */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .hamburger {
+        display: flex;
+    }
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        border-radius: 10px;
+        flex-direction: column;
+        min-width: 180px;
+        z-index: 1000;
+        padding: 1rem 0;
+        animation: fadeInMenu 0.3s;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+    </style>
+
+
+
+    <header class="navbar">
+        <h1>Rhecthor Nation</h1>
+        <nav>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navLinks">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#courses">COURSES</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="sign">
+        <button class="choose-plan"><a href="register.html">REGISTER</a></button>
+        </div>
+    </header>
+
+   
+
+    <section class="hero animate-bottom">
+
+        <div class="heroes">
+        <div class="hero-content">
+            <h2>Fun and Easy Web development for kids</h2>
+            <p>Interactive lessons in HTML, CSS and JavaScript tailored for young minds.</p>
+            <a href="#courses" class="cta-button">Start Learning</a>
+        </div>
+        <img src="port.jpg" alt="port">
+        </div>
+    </div>
+    </section>
+
+    <section id="courses" class="courses animate-bottom">
+        <h3>Our Courses</h3>
+        <div class="course-grid">
+            <div class="course-card">
+                <i class='bx bxl-html5'></i>
+                <h4>HTML Basics</h4>
+                <p>Build the structure of web pages with easy example.</p>
+            </div>
+            <div class="course-card">
+                <i class='bx bxl-css3' ></i>
+                <h4>CSS Styling</h4>
+                <p>Make websites colourful and stylish with CSS.</p>
+            </div>
+            <div class="course-card">
+                <i class='bx bxl-javascript' ></i>
+                <h4>JavaScript Fun</h4>
+                <p>Learn to make your website interactive and fun.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="courses animate-left">
+        <h3>Front-end Frameworks</h3>
+        <div class="course-grid">
+            <div class="course-card">
+                <h4>Bootstrap</h4>
+                <P>This is a css framework used to style web pages and make them look more stunning.</P>
+            </div>
+            <div class="course-card">
+                <h4>Tailwind</h4>
+                <p>Also a css framework use to improve the design of the website or application.</p>
+            </div>
+            <div class="course-card">
+                <h4>React.JS</h4>
+                <p>This is a JavaScript frame work used to make the UI of a webpage look more attractive.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="pricing" class="pricing animate-right">
+        <h3>Pick Your Perfect Plan</h3>
+        <div class="pricing-grid">
+            <div class="pricing-card most-popular">
+                <h4>Basic</h4>
+                <p>Everything you need to know about web development.</p>
+                <p class="price"><span class="old-price">US$ 11.99</span> <span class="new-price">US$ 2.99</span>/mo</p>
+                <p>For 3-Months</p>
+                <button class="choose-plan"><a href="#">Choose Plan</a></button>
+            </div>
+            <div class="pricing-card most-popular">
+                <h4>Premium</h4>
+                <p>Level up with more power and enhanced features in your web development skills.</p>
+                <p class="price"><span class="old-price">US$ 13.99</span> <span class="new-price">US$ 3.99</span>/mo</p>
+                <p>For 6-Months term</p>
+                <button class="choose-plan"><a href="#">Choose Plan</a></button>
+            </div>
+            <div class="pricing-card most-popular">
+                <h4>VIP</h4>
+                <p>Enjoy top classes from great tutors and intensive reviews</p>
+                <p class="price"><span class="old-price">US$ 27.99</span> <span class="new-price">US$ 7.99</span>/mo</p>
+                <p> 12-Month term</p>
+                <button class="choose-plan"><a href="#">Choose Plan</a></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="migration" class="migration animate-left"> 
+        <h3>Website Development Skills. Made Easy</h3>
+        <p>Unlock your potential with RhecthorDevMastery.com- Your Gateway to Web Development Excellence.</p>
+        <div class="migration-grid">
+            <div class="migration-card">
+                <h4>3 Simple Steps</h4>
+                <p>Simply pick your plan, Join our Interactive Learning.</p>
+            </div>
+            <div class="migration-card">
+                <h4>Intensive and Secure</h4>
+                <p>Expert instrustors. Learn from professionals with real-world experience.</p>
+            </div>
+            <div class="migration-card">
+                <h4>Community Driven</h4>
+                <p>Join forums, live webinars, and group projects</p>
+            </div>
+        </div>
+        <button class="get-started">Get Started</button>
+    </section>
+
+    <section id="testimonials" class="testimonials animate-top">
+        <h3>Used by 3+ million website users worldwide</h3>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <h4>Daniel Chinagozie</h4>
+                    <p>Co-founder of IGHUB</p>
+                </div>
+                <p class="rating">★★★★★</p>
+                <p>Ever since rhecthor nation was created i assign my students to go here and register for their courses because the give the best out of everything.</p>
+                <a href="#" class="read-more">Read the full story</a>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <h4>Uche James</h4>
+                    <p>Fullstack Web Developer.</p>
+                </div>
+                <p class="rating">★★★★★</p>
+                <p>I am so impressed by this website becausethey give me things that are beyond my expectations.</p>
+                <a href="#" class="read-more">Read the full story</a>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <h4>Emmanuel Adiele</h4>
+                    <p>Fullstack Web Developer</p>
+                </div>
+                <p class="rating">★★★★★</p>
+                <p>I was looking for a website to register my children and lucky for me i found this website, I'm really impressed because the have made my child a star in web developemnt.</p>
+                <a href="#" class="read-more">Read the full story</a>
+            </div>
+        </div>
+        <button class="read-more-stories">Read more stories</button>
+    </section>
+   
+
+        <footer class="footer">
+            <div class="footer-grid">
+              <div>
+                <h3>FRONT-END COURSES</h3>
+                <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>React.Js</li>
+                  <li>Vue.Js</li>
+                  <li>Angular.Js</li>
+                 
+              </div>
+              <div>
+                <h3>BACK-END COURSES</h3>
+                <ul>
+                  <li>PHP</li>
+                  <li>Python</li>
+                  <li>Node.Js</li>
+                  <li>Java</li>
+                </ul>
+              </div>
+              <div>
+                <h3>TOOLS</h3>
+                <ul>
+                  <li>Visual Studio Code</li>
+                  <li>Github, Git, GitLab</li>
+                  <li>Tailwind CSS</li>
+                  <li>Netlify, Vercel(Front-end)</li>
+                  <li>Heruko, AWS, DigitalOcean(Back-End)</li>
+                </ul>
+              </div>
+              <div>
+               
+                <h3>COMPANY</h3>
+                <ul>
+                  <li>About Rhecthor Nation</li>
+                  <li>Our Sevices</li>
+                  <li>TechRoom</li>
+                  <li>Career</li>
+                  <li>Certifications</li>
+                  <li>Student discount</li>
+                  <li>Sustainability</li>
+                </ul>
+              </div>
+              <div>
+                <h3>SUPPORT</h3>
+                <ul>
+                  <li>Tutorials</li>
+                  <li>Knowledge Base</li>
+                  <li>Contact us</li>
+                  <li>Report abuse</li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <div class="footer-logo">
+                <img src="logo.jpg" alt="Rhecthor Nation Logo">
+              </div>
+              <div class="payment-methods">
+                <img src="visa.jpeg" width="40px" alt="Visa">
+                <img src="mastercard.jpeg" width="50px" alt="MasterCard">
+                <img src="paypal.jpeg" width="40px" alt="PayPal">
+                <img src="https://via.placeholder.com/50x30" alt="Discover">
+                <img src="https://via.placeholder.com/50x30" alt="JCB">
+              </div>
+              <p>© 2025 Rhecthor Nation. All rights reserved.</p>
+            </div>
+          </footer>
+    </div>
+
+   <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible'); // remove class when out of view
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.animate-top, .animate-bottom, .animate-left, .animate-right')
+    .forEach(el => observer.observe(el));
+</script>
+<script>
+document.getElementById('hamburgerBtn').onclick = function() {
+    document.getElementById('navLinks').classList.toggle('show');
+};
+</script>
+
+    
+</body>
+</html>

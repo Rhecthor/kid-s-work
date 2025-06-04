@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.register-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.form-section {
+    flex: 1;
+    background: #fff;
+    padding: 5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    color: #6a5acd;
+    margin-bottom: 1.7rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.register-button {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.register-button a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.register-button:hover {
+    background-color: #5a4cb0;
+}
+
+.form-section a {
+    color: #6a5acd;
+    text-decoration: none;
+}
+
+.form-section a:hover {
+    text-decoration: underline;
+}
+
+.info-section {
+    flex: 1;
+    background: #2c2c54;
+    color: #fff;
+    padding: 4rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h3 {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 35px;
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-section ul li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: larger;
+}
+
+.info-section ul li strong {
+    color: #6a5acd;
+}
+
+@media (max-width: 900px) {
+  .register-container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .form-section,
+  .info-section {
+    width: 100%;
+    min-width: unset;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+  .info-section {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-section,
+  .info-section {
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+  }
+  .form-section h2,
+  .info-section h3 {
+    font-size: 1.3rem;
+  }
+  .register-button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+    </style>
+    <div class="register-container">
+        <div class="form-section">
+            <h2>Register for Rhethor's Nation</h2>
+            <!-- Formspree integration starts here -->
+            <form action="https://formsubmit.co/miraclechimechefulam27@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="first-name">First Name </label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name </label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email </label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password </label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I understand and agree to the <a href="#">terms of use</a> and <a href="#">privacy policy</a> </label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="updates" name="updates">
+                    <label for="updates">Please send me occasional Rhethor's Nation news updates</label>
+                </div>
+                <button type="submit" class="register-button">Register</button>
+            </form>
+            <!-- Formspree integration ends here -->
+            <p>Already have an account? <a href="login.html">Sign in</a></p>
+        </div>
+        <div class="info-section">
+            <h3>Why Join Us?</h3>
+            <ul>
+                <li><strong>Interactive Learning:</strong> Fun and engaging lessons tailored for kids.</li>
+                <li><strong>Expert Guidance:</strong> Learn from experienced instructors.</li>
+                <li><strong>Community Support:</strong> Join forums, webinars, and group projects.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+    function ValidateAndstoredata(event) {
+        event.preventDefault();
+
+        const firstname = document.getElementById('first-name').value.trim();
+        const lastname = document.getElementById('last-name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const terms = document.getElementById('terms').checked;
+
+        if (!firstname || !lastname || !email || !password || !terms) {
+            alert('Please fill in all the required fields and agree to the terms.');
+            return;
+        }
+
+        // Save the user credentials in localStorage
+        localStorage.setItem('registeredEmail', email);
+        localStorage.setItem('registeredPassword', password);
+
+        alert('Registration successful! Redirecting to login page...');
+        window.location.href = 'login.html';
+    
+
+
+            // Save email and password to localStorage
+          localStorage.setItem('registeredEmail', email);
+          localStorage.setItem('registeredPassword', password);
+
+// Simulate storing data (you can replace this with actual backend logic)
+localStorage.setItem('registeredEmail', email);
+localStorage.setItem('registeredPassword', password);
+    }
+        
+    </script>
+</body>
+</html>
